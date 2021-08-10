@@ -1,3 +1,4 @@
+mainurl='https://home-store-1.herokuapp.com'
 function expandSearchBar(element) {
     element.style.width = '90%';
     element.style.borderBottomLeftRadius='0px';
@@ -41,7 +42,7 @@ function minimizeSearchBar(element) {
 const searchbar = document.getElementById('searchbar');
 let searchDropdown = document.querySelector('.searchbar-dropdown');
 function executeSearch() {
-    window.location.href = `${URL}/products`;
+    window.location.href = `${mainurl}/products`;
     localStorage.setItem('search',searchbar.value.toLowerCase());
 }
 
@@ -50,7 +51,7 @@ async function getinput(){
     // console.log('hi');
     let value = searchbar.value.toLowerCase();
     if (value != '') {
-        const response = await fetch(`${URL}/product/recommandations`, {
+        const response = await fetch(`${mainurl}/product/recommandations`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -110,7 +111,7 @@ async function getinput(){
         });
     }
     else {
-        const response = await fetch(`${URL}users/recentsearch`);
+        const response = await fetch(`${mainurl}users/recentsearch`);
         const result = await response.json();
         console.log(result);
         if(!result.error)
@@ -169,7 +170,7 @@ async function getinput(){
     searchDropdown.innerHTML = html;
 }
 function callonclick(object){
-    window.open(`${URL}/product?id=${object}`)
+    window.open(`${mainurl}/product?id=${object}`)
 }
 const callingfunction = (fn, d) => {
     let list;
