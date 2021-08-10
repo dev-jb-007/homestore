@@ -2,16 +2,16 @@ let body={};
 const mainurl='https://home-store-1.herokuapp.com';
 async function continuebtn()
 {   
-    let mainurl;
+    let url;
     const otp=document.getElementById('otp').value;
     if(otp.length==0)
     {
-        mainurl=`${mainurl}/users/signup1`
+        url=`${mainurl}/users/signup1`
     }
     else{
-        mainurl=`${mainurl}/users/signup2/?otp=${otp}`;
+        url=`${mainurl}/users/signup2/?otp=${otp}`;
     }
-    window.location.href=mainurl;
+    window.location.href=url;
 }
 async function sendotp(){
     const email=document.getElementById('email').value;
