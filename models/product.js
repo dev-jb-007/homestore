@@ -12,7 +12,8 @@ const commentSchema = new Schema({
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        unique: true
     }
 })
 const productSchema = new Schema({
