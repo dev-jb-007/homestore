@@ -85,6 +85,6 @@ app.use(function(err, req, res, next) {
   });
 //CREATING SERVER
 const server=http.createServer(app);
-server.listen(process.env.PORT||3000,'home-store-1.herokuapp',()=>{
+server.listen(process.env.PORT||3000,process.env.HOST,()=>{
     console.log('Successfully connected to server');
 });
