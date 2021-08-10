@@ -1,4 +1,3 @@
-const URL='https://home-store-1.herokuapp.com';
 function expandSearchBar(element) {
     element.style.width = '90%';
     element.style.borderBottomLeftRadius='0px';
