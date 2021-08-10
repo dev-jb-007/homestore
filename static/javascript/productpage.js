@@ -445,7 +445,7 @@ function showUploadRating() {
 
 }
 async function submit_review() {
-    let mainurl = window.location.href;
+    let url = window.location.href;
     const id = window.location.href.split('=')[1];
     console.log(id);
     const reviews = document.getElementById('input_review').value;
@@ -464,7 +464,7 @@ async function submit_review() {
         },
         body: JSON.stringify({ reviews, rating })
     })
-    window.location.href = mainurl;
+    window.location.href =url;
 }
 async function addProductToCart(id)
     {   
