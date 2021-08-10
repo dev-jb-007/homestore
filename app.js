@@ -29,7 +29,7 @@ app.use(session({
     resave:false,
     secret:'this is our server',
     store: MongoStore.create({
-        mongoUrl:'mmongodb+srv://dev_jb_007:Dev@2002@cluster0.ibx33.mongodb.net/HomeStore?retryWrites=true&w=majority',
+        mongoUrl:process.env.MONGO_URL,
         collectionName:'sessions'
     }),
     cookie:{
