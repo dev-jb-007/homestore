@@ -1,7 +1,8 @@
+const URL='https://home-store-1.herokuapp.com';
 async function getCartData() {
     let id = window.location.href.split('=')[1];
     const mainproduct = document.querySelector('.main-product');
-    const response = await fetch(`http://localhost:3000/users/cart`);
+    const response = await fetch(`${URL}/users/cart`);
     const result = await response.json();
     console.log(result);
     const cartChecks = document.querySelector('.cart-checks');
@@ -10,7 +11,7 @@ async function getCartData() {
         result.cart.forEach(item => {
             html += `
             <div class="cart-card">
-                <div class="img-part"><img src="http://localhost:3000/product/${item._id}/images?image=0" alt=""></div>
+                <div class="img-part"><img src="${URL}/product/${item._id}/images?image=0" alt=""></div>
                 <div class="text-part">
                     <p>${item.title}</p>
                     <p>${item.description}</p>
@@ -39,7 +40,7 @@ async function getCartData() {
     // mainproduct.innerHTML=product.content();
 }
 async function deleteCartItem(id){
-    const response=await fetch('http://localhost:3000/users/cart',{
+    const response=await fetch(`${URL}/users/cart`,{
         method: 'DELETE',
         headers:{
             'Content-Type': 'application/json'

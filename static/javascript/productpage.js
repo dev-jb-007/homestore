@@ -1,3 +1,4 @@
+const URL='https://home-store-1.herokuapp.com';
 window.onload = () => {
     // getProductPrice();
     getData();
@@ -39,7 +40,7 @@ class Product {
         this.ratingNumber = item.ratingNumber;
         this.reviewNumber = item.reviewNumber;
         this.html = ``;
-        this.imgurl = `http://localhost:3000/product/${this.id}/images/?image=0`;
+        this.imgurl = `${URL}/product/${this.id}/images/?image=0`;
         this.images = new Array(0);
         this.userCommented = this.comments.length;
         this.star1 = 0;
@@ -51,9 +52,9 @@ class Product {
     }
     async getimage() {
         const response1 = await fetch(``);
-        const response2 = await fetch(`http://localhost:3000/product/${this.id}/images/?image=1`);
-        const response3 = await fetch(`http://localhost:3000/product/${this.id}/images/?image=2`);
-        const response4 = await fetch(`http://localhost:3000/product/${this.id}/images/?image=3`);
+        const response2 = await fetch(`http://l${URL}/${this.id}/images/?image=1`);
+        const response3 = await fetch(`http://l${URL}/${this.id}/images/?image=2`);
+        const response4 = await fetch(`http://l${URL}/${this.id}/images/?image=3`);
         const result1 = await response1.json();
         const result2 = await response2.json();
         const result3 = await response3.json();
@@ -92,13 +93,13 @@ class Product {
                 <div class="main_image">
                     <button id="prev_img" onclick="prevImage()"><ion-icon name="arrow-back-outline"></ion-icon></button>
                     <button id="next_img" onclick="nextImage()"><ion-icon name="arrow-forward-outline"></ion-icon></button>
-                    <img id="main_display_image" src="http://localhost:3000/product/${this.id}/images/?image=0">
+                    <img id="main_display_image" src="${URL}/product/${this.id}/images/?image=0">
                 </div>
                 <div class="all_image">
-                    <img onclick="changeMainImage(this)" src="http://localhost:3000/product/${this.id}/images/?image=0">
-                    <img onclick="changeMainImage(this)" src="http://localhost:3000/product/${this.id}/images/?image=1">
-                    <img onclick="changeMainImage(this)" src="http://localhost:3000/product/${this.id}/images/?image=2">
-                    <img onclick="changeMainImage(this)" src="http://localhost:3000/product/${this.id}/images/?image=3">
+                    <img onclick="changeMainImage(this)" src="${URL}/product/${this.id}/images/?image=0">
+                    <img onclick="changeMainImage(this)" src="${URL}/product/${this.id}/images/?image=1">
+                    <img onclick="changeMainImage(this)" src="${URL}/product/${this.id}/images/?image=2">
+                    <img onclick="changeMainImage(this)" src="${URL}/product/${this.id}/images/?image=3">
                 </div>
             </div>
             <div class="buy_button">
@@ -362,7 +363,7 @@ function prevImage() {
 async function getData() {
     let id = window.location.href.split('=')[1];
     const mainproduct = document.querySelector('.main-product');
-    const response = await fetch(`http://localhost:3000/product/singleproduct?id=${id}`);
+    const response = await fetch(`${URL}/product/singleproduct?id=${id}`);
     const result = await response.json();
     let product = new Product(result);
     mainproduct.classList.remove('loader-view');
@@ -456,7 +457,7 @@ async function submit_review() {
             break;
         }
     }
-    await fetch(`http://localhost:3000/product/uploadcomments?id=${id}`, {
+    await fetch(`${URL}/product/uploadcomments?id=${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -469,7 +470,7 @@ async function addProductToCart(id)
     {   
         let url=window.location.href;
         id=window.location.href.split('=')[1];
-        const response=await fetch(`http://localhost:3000/users/cart?id=${id}`,{
+        const response=await fetch(`${URL}/users/cart?id=${id}`,{
             method: 'POST',
             headers: {'Content-Type': 'text/plain'}
         });

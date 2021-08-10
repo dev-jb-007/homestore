@@ -39,7 +39,7 @@
     let id = window.location.href.split("=")[1];
     console.log(id);
     const form = document.getElementById('image-upload');
-    form.setAttribute('action', `http://localhost:3000/product/${id}/images`);
+    form.setAttribute('action', `https://home-store-1.herokuapp.com/product/${id}/images`);
     var loadFile = function (event) {
         var image = document.getElementById('previews').children;
         Array.from(image).forEach((item, index) => {

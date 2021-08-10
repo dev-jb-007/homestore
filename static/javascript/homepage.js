@@ -1,5 +1,5 @@
 
-
+const URL='https://home-store-1.herokuapp.com';
 const li = document.querySelectorAll('#list li');
 var mediaqueryipad = window.matchMedia("(max-width: 1024px) and (min-width: 500px)")
 let scroll = 0;
@@ -31,7 +31,7 @@ function showmobilenav() {
 
 async function recentViewed() {
     const recent = document.getElementById('recently-viewed');
-    const response = await fetch('http://localhost:3000/users/recent');
+    const response = await fetch(`${URL}/users/recent`);
     const result = await response.json();
     let html='';
     console.log(result);
@@ -50,7 +50,7 @@ async function recentViewed() {
         const recent=result.recent;
         recent.slice().reverse().forEach(element=>{
             html+=`<div class="viewed-card">
-            <img src="http://localhost:3000/product/${element._id}/images?image=0" alt="">
+            <img src="${URL}/product/${element._id}/images?image=0" alt="">
             <p>${element.title}</p>
             <button style="cursor:pointer" onclick="viewProduct('${element._id}')">View Product</button>
         </div>`
@@ -60,7 +60,7 @@ async function recentViewed() {
     recent.innerHTML=html;
 }
 function viewProduct(id){
-    window.open(`http://localhost:3000/product?id=${id}`);
+    window.open(`${URL}/product?id=${id}`);
 }
 // Buttons to scroll ------------------------------------------------------------------------------------
 
@@ -135,17 +135,17 @@ setInterval(() => {
 // Users Functions------------------------------------------------------------------------------------
 
 function loginbtn() {
-    window.location.href = 'http://localhost:3000/users/login';
+    window.location.href = `${URL}/users/login`;
 }
 function singupbtn() {
-    window.location.href = 'http://localhost:3000/users/signup1';
+    window.location.href = `${URL}/users/signup1`;
 }
 
 async function signout() {
-    const response = await fetch('http://localhost:3000/users/signout');
+    const response = await fetch(`${URL}/users/signout`);
     const result = await response.text();
     if (result == 'done') {
-        window.location.href = "http://localhost:3000"
+        window.location.href = URL;
     }
     else {
         alert('Please Authenticate');
