@@ -34,7 +34,7 @@ class Product{
         this.instruction=item.instruction;
         this.net_quantity=item.net_quantity;
         this.html=``;
-        this.imgurl=`${URL}/product/${this.id}/images/?image=0`;
+        this.imgurl=`${mainurl}/product/${this.id}/images/?image=0`;
         this.product_id=id;
     }
     content()

@@ -1,4 +1,4 @@
-const URL='https://home-store-1.herokuapp.com';
+const mainurl='https://home-store-1.herokuapp.com';
 async function continueToImage(){
     const title=document.getElementById('productTitle').value;
     const description=document.getElementById('product-description').value;
@@ -59,7 +59,7 @@ async function continueToImage(){
         "net_quantity":10
     }
     console.log(body1);
-    const response=await fetch(`${URL}/product`,{
+    const response=await fetch(`${mainurl}/product`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -67,5 +67,5 @@ async function continueToImage(){
         body:JSON.stringify(body)
     });
     const result=await response.json();
-    window.open(`${URL}/addproduct/images?id=${result._id}`);
+    window.open(`${mainurl}/addproduct/images?id=${result._id}`);
 }
