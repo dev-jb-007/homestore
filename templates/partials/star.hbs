@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star</title>
+</head>
+<style>
+    ion-icon{
+        color:lightgray;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+    <div id="stars-div">
+        <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star1"></ion-icon>
+        <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star2"></ion-icon>
+        <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star3"></ion-icon>
+        <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star4"></ion-icon>
+        <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star5"></ion-icon>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+<script>
+    let check=0;
+    function giveStarRating(element) {
+        let flag = 0;
+        check=0;
+        const starsDiv = document.getElementById('stars-div').children;
+        Array.from(starsDiv).forEach(item=>{
+            item.style.color="lightgray";
+        })
+        Array.from(starsDiv).forEach(item => {
+            if (flag == 0) {
+                if (item === element) {
+                    flag++;
+                    item.style.color = 'yellow';
+                }
+                else {
+                    item.style.color = 'yellow';
+                }
+            }
+        })
+    }
+    function takeStarRating(element){
+        if(check==0)
+        {
+            let flag = 0;
+            const starsDiv = document.getElementById('stars-div').children;
+
+            Array.from(starsDiv).forEach(item => {
+                if (flag == 0) {
+                    if (item === element) {
+                        flag++;
+                        item.style.color = 'lightgrey';
+                    }
+                    else {
+                        item.style.color = 'lightgrey';
+                    }
+                }
+            })
+        }
+        
+    }
+    function postStarRating(element){
+        let flag = 0;
+        const starsDiv = document.getElementById('stars-div').children;
+
+        Array.from(starsDiv).forEach((item, index) => {
+            if (flag == 0) {
+                if (item === element) {
+                    flag++;
+                    console.log(++index);
+                    item.style.color = 'yellow';
+                }
+                else {
+                    item.style.color = 'yellow';
+                }
+            }
+        })
+        check=1;
+    }
+</script>

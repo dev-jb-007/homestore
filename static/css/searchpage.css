@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Titillium+Web:wght@200&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Roboto+Condensed:ital,wght@0,400;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filter-outer-div {
+    padding: 0px 20px;
+    transform: translateX(4.9%);
+    width: calc(100% - 4.7%);
+    height: 34px;
+    overflow: hidden;
+    margin-top: 80.2px;
+    transition: 0.5s;
+}
+
+.filter-outer-div .filter {
+    padding: 0px 20px;
+    width: 100%;
+    height: max-content;
+}
+
+.filter-outer-div .filter p {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 5px;
+    width: max-content;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    /* background-color: lightgray; */
+}
+
+.filter-outer-div .filter p:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.filter-outer-div .filter p svg {
+    margin-right: 4px;
+}
+
+.filter-outer-div .filter-opt {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.filter-outer-div .filter .filter-opt .filt-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.filter-outer-div .filter .filter-opt .filt-categories h3 {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    color: grey;
+    letter-spacing: 5px;
+    position: relative;
+}
+
+/* .filter-outer-div .filter .filter-opt .filt-categories h3::after{
+    content:'';
+    position: absolute;
+    left:-13%;
+    bottom:-5px;
+    width: 120%;
+    height: 2px;
+    background-color: grey;
+} */
+.filter-outer-div .filter .filter-opt .filt-categories h3:focus::after {
+    transform: scaleX(1);
+}
+
+.filter-outer-div .filter .filter-opt .filt-categories .radio {
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.filter-outer-div .filter .filter-opt .filt-categories .radio input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.search-results {
+    transform: translateX(4.9%);
+    width: calc(100% - 4.7%);
+    height: max-content;
+    margin: 20px 0px 0px 0px;
+}
+.remove-height{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-results .search-content {
+    height: 300px;
+    width: 100%;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+}
+
+.search-results .search-content .pro-img {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-results .search-content .pro-info {
+    flex: 4;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+    /* border: 2px solid darkblue; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.search-results .search-content .pro-price {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.search-results .search-content .pro-img img {
+    height: 80%;
+    width: 80%;
+    aspect-ratio: 9/16;
+    /* margin-left: 21.5%; */
+}
+
+.top-button {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    transition: 0.4s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+}
+
+.top-button ion-icon {
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.top-button-toggle-class {
+    opacity: 1;
+}
+
+@media (max-width:700px) {
+    .filter-outer-div {
+        padding: 0px 0px;
+        transform: translateX(3.7%);
+        width: 97%;
+        margin-top: 105px;
+    }
+
+    .filter-outer-div .filter {
+        padding: 0px;
+    }
+
+    .filter-outer-div .filter-opt {
+        font-size: 1em;
+    }
+
+    .filter-outer-div .filter .filter-opt .filt-categories h3 {
+        font-size: 1rem;
+    }
+
+    .filter-outer-div .filter .filter-opt .filt-categories {
+        width: 169px;
+    }
+
+    .search-results {
+        transform: translateX(4%);
+        width: 100%;
+    }
+    .search-results .search-content .pro-img {
+        flex: 2;
+    }
+}
+
+@media (max-width:377px) {
+    .search-results .search-content .pro-info {
+        font-size: 0.82em;
+    }
+}

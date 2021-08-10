@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add your Product</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/addproduct.css">
+</head>
+
+<body>
+    <header id="web-header">
+        <div class="logo">
+            <ion-icon name="logo-amazon"></ion-icon>
+        </div>
+        <div class="name">
+            <p>FLIPKART</p>
+        </div>
+        <div class="searchbar"><input type="text" name="" id="searchbar" onclick="expandSearchBar(this)"
+                onblur="minimizeSearchBar(this)">
+            <ion-icon class="search" name="search-circle"></ion-icon>
+        </div>
+    </header>
+    <div class="addition-form">
+        <label for="productTitle">
+            <h2>PRODUCT TITLE
+            </h2><input type="text" id="productTitle" name="title" class="all-inputs">
+        </label>
+        <label for="product-description">
+            <h2>PRODUCT DESCRIPTION</h2>
+        </label><textarea name="description" id="product-description" cols="120" rows="10"></textarea>
+        <div class="form-div">
+            <div class="form-div1">
+                <label for="seller-sku-id">
+                    <h2>SELLER SKU ID</h2><input name="SKU_ID" type="text" id="seller-sku-id" class="all-inputs">
+                </label>
+                <label for="MRP">
+                    <h2>MRP</h2><input type="number" name="price" id="MRP" class="all-inputs">
+                </label>
+                <label for="discount">
+                    <h2>DISCOUNT</h2><input type="number" name="discount" id="discount" class="all-inputs">
+                </label>
+                <label for="quantity">
+                    <h2>STOCK</h2><input type="number" name="quantity" id="quantity" class="all-inputs">
+                </label>
+                <label for="weight">
+                    <h2>PRODUCT WEIGHT</h2><input type="number" name="weight" id="weight" class="all-inputs">
+                </label>
+                <label for="country">
+                    <h2>COUNTRY</h2><input type="text" name="country" id="country" class="all-inputs">
+                </label>
+                <label for="height">
+                    <h2>PRODUCT HEIGHT</h2><input name="height" type="number" id="height" class="all-inputs">
+                </label>
+                <label for="length">
+                    <h2>PRODUCT LENGTH</h2><input name="length" type="number" id="length" class="all-inputs">
+                </label>
+                <label for="width">
+                    <h2>PRODUCT WIDTH</h2><input type="number" name="width" id="width" class="all-inputs">
+                </label>
+                <label for="manufacturer">
+                    <h2>MANUFACTURER</h2><input type="text" name="manufacturer" id="manufacturer" class="all-inputs">
+                </label>
+                <label for="manufacturer_year">
+                    <h2>MANUFACTURING YEAR</h2><input type="number" name="manufacturer_year" id="manufacturer_year" class="all-inputs">
+                </label>
+                <label for="warrenty">
+                    <h2>WARANTEY PERIOD</h2><input type="number" name="warrenty" id="warrenty" class="all-inputs">
+                </label>
+                <label for="net_quantity">
+                    <h2>NET QUANTITY</h2><input type="number" name="net_quantity" id="net_quantity" class="all-inputs">
+                </label>
+            </div>
+            <div class="form-div2">
+                <label for="model">
+                    <h2>MODEL NUMBER</h2><input type="text" name="model" id="model" class="all-inputs">
+                </label>
+                <label for="color">
+                    <h2>COLOR</h2><input type="text" name="color" id="color" class="all-inputs">
+                </label>
+                <label for="categories">
+                    <h2>CATEGORY</h2><input type="text" name="categories" id="categories" class="all-inputs">
+                </label>
+                <label for="brand">
+                    <h2>BRAND</h2><input type="text" name="brand" id="brand" class="all-inputs">
+                </label>
+                <label for="package_height">
+                    <h2>PACKAGE HEIGHT</h2><input type="number" name="package_height" id="package_height" class="all-inputs">
+                </label>
+                <label for="package_length">
+                    <h2>PACKAGE LENGTH</h2><input type="number" name="package_length" id="package_length" class="all-inputs">
+                </label>
+                <label for="package_width">
+                    <h2>PACKAGE WIDTH</h2><input type="number" name="package_width" id="package_width" class="all-inputs">
+                </label>
+                <label for="package_weight">
+                    <h2>PACKAGE WEIGHT</h2><input type="number" name="package_weight" id="package_weight" class="all-inputs">
+                </label>
+                <label for="self_life">
+                    <h2>SHELF LIFE</h2><input type="number" name="self_life" id="self_life" class="all-inputs">
+                </label>
+                <label for="expiry">
+                    <h2>DATE OF EXPIRY</h2><input type="number" name="expiry" id="expiry" class="all-inputs">
+                </label>
+                <label for="gaurentee">
+                    <h2>GUARANTEE PERIOD</h2><input type="number" name="gaurentee" id="gaurentee" class="all-inputs">
+                </label>
+            </div>
+        </div>
+        <div class="last-btns">
+            <button class="submission">SAVE AS DRAFT</button>
+            <button onclick="continueToImage()" class="submission">CONTINUE
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="/javascript/addproduct.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

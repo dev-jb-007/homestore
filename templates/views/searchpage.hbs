@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/searchpage.css">
+
+    <title>SearchPage</title>
+</head>
+
+<body>
+    {{>webnavbar}}
+    {{>webheader}}
+    {{>websearch}}
+    <div class="filter-outer-div">
+        <div class="filter">
+            <p onclick="openFilter()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" /></svg>
+                FILTER
+            </p>
+            <div class="filter-opt">
+                <div class="filt-categories">
+                    <h3 class="filter-title">PRICE</h3>
+                    <div class="radio">
+                        <label for="price-opt1"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                        </label>
+                        <label for="price-opt2"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                        </label>
+                        <label for="price-opt3"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                        </label>
+                        <label for="price-opt4"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                        </label>
+                        <label for="price-opt5"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                        </label>
+                    </div>
+                </div>
+                <div class="filt-categories">
+                    <h3 class="filter-title">COLOR</h3>
+                    <div class="radio">
+                        <label for="price-opt1"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                        </label>
+                        <label for="price-opt2"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                        </label>
+                        <label for="price-opt3"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                        </label>
+                        <label for="price-opt4"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                        </label>
+                        <label for="price-opt5"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                        </label>
+                    </div>
+                </div>
+                <div class="filt-categories">
+                    <h3 class="filter-title">DISCOUNTS</h3>
+                    <div class="radio">
+                        <label for="price-opt1"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                        </label>
+                        <label for="price-opt2"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                        </label>
+                        <label for="price-opt3"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                        </label>
+                        <label for="price-opt4"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                        </label>
+                        <label for="price-opt5"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                        </label>
+                    </div>
+                </div>
+                <div class="filt-categories">
+                    <h3 class="filter-title">ARRIVALS</h3>
+                    <div class="radio">
+                        <label for="price-opt1"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                        </label>
+                        <label for="price-opt2"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                        </label>
+                        <label for="price-opt3"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                        </label>
+                        <label for="price-opt4"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                        </label>
+                        <label for="price-opt5"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="search-results remove-height">
+        {{>loader}}
+    </section>
+    <button class="top-button" onclick="gototop(this)">
+        <ion-icon name="chevron-up"></ion-icon>
+    </button>
+    {{>webfooter}}
+    <!-- Mobile Html  -->
+    <header id="mobile-header">
+        <div id="nav-hamburger">
+            <div id="hamburger" onclick="showmobilenav()"></div>
+        </div>
+        <div id="title">
+            <p>FLIPKART</p>
+        </div>
+        <div id="cart">
+            <ion-icon name="cart-outline"></ion-icon>
+        </div>
+        <div id="search">
+            <ion-icon name="search"></ion-icon>
+            <input type="text"  placeholder="search product">
+        </div>
+    </header>
+    <div class="mobile-navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Wishlist</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Sign Out</a></li>
+        </ul>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+{{!-- <script src="/javascript/homepage.js"></script> --}}
+<script src="/utils/searchbar.js"></script>
+<script src="/utils/productclass.js"></script>
+<script src="/javascript/searchpage.js"></script>
+
+</html>

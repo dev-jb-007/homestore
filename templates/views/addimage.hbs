@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/addproduct.css">
+</head>
+
+<body>
+    <div class="adding-image">
+        <form method="post" enctype="multipart/form-data" id="image-upload">
+            <input type="file" multiple name="multi-images" onchange="loadFile(event)" id="input-image"
+                style="display:none">
+            <label for="input-image" style="cursor:pointer"><img src="https://img.icons8.com/glyph-neue/100/000000/add-image.png"
+                    alt="click to add image">
+                <div>
+                    <h1>ADD IMAGE</h1>
+                </div>
+            </label>
+            <input type="submit" value="Upload Images">
+        </form>
+
+    </div>
+    <div class="upload-img">
+
+        <div id="previews">
+            <img alt="" class="img-preview">
+            <img alt="" class="img-preview">
+            <img alt="" class="img-preview">
+            <img alt="" class="img-preview">
+        </div>
+    </div>
+</body>
+<script>
+
+    let id = window.location.href.split("=")[1];
+    console.log(id);
+    const form = document.getElementById('image-upload');
+    form.setAttribute('action', `http://localhost:3000/product/${id}/images`);
+    var loadFile = function (event) {
+        var image = document.getElementById('previews').children;
+        Array.from(image).forEach((item, index) => {
+            item.src = URL.createObjectURL(event.target.files[index]);
+        })
+    };
+</script>
+
+</html>

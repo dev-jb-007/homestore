@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/cartpage.css">
+</head>
+<body>
+    {{>webnavbar}}
+    {{>webheader}}
+    {{>websearch}}
+    <div class="cart-head"><h1>MY CART</h1></div>
+    <div class="full-payment">
+    <section class="cart-checks">
+        {{!-- <div class="cart-card">
+            <div class="img-part"><img src="https://unsplash.it/300/300" alt=""></div>
+            <div class="text-part">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, culpa.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae minus doloribus sapiente libero, eligendi officiis vero itaque, fugit deleniti neque ducimus sed, a autem. Nobis et optio perferendis omnis impedit!</p>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <div class="add-drop">
+                    <div class="curr-price"><strong>Rs. 500 <span>Rs. 1000</span></strong></div>
+                    
+                    <div class="add-drop-btn">
+                        <button><ion-icon name="add"></ion-icon></button>
+                        <div class="curr-quantity">3</div>
+                        <button><ion-icon name="remove"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+            <div class="check"><input type="checkbox">
+            <button class="delete"><ion-icon name="trash"></ion-icon></button></div>
+        </div>              --}}
+        {{>loader}}
+    </section>
+    <section class="final-payment">
+        <div class="checkout-head"><h2>CHECKOUT</h2></div>
+        <div class="mrp">
+            <div class="pro-title">MRP:</div>
+            <div class="amount">Rs. 400</div>
+        </div>
+        <div class="mrp">
+            <span class="pro-title">DISCOUNT:</span>
+            <span class="amount">Rs. 400</span>
+        </div>
+        <div class="mrp">
+            <span class="pro-title">DELIVERY CHARGES:</span>
+            <span class="amount">Rs. 400</span>
+        </div>
+        <div class="mrp">
+            <span class="pro-title">TOTAL AMOUNT:</span>
+            <span class="amount">Rs. 400</span>
+        </div>
+        <button class="proceed-payment">PROCEED TO PAYMENT</button>
+    </section>
+</div>
+    {{>webfooter}}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+{{!-- <script src="/javascript/homepage.js"></script> --}}
+{{!-- <script src="/utils/productclass.js"></script> --}}
+<script src="/javascript/cart.js"></script>
+</html>
