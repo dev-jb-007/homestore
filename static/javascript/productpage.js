@@ -468,7 +468,7 @@ async function submit_review() {
 }
 async function addProductToCart(id)
     {   
-        let mainurl=window.location.href;
+        let url=window.location.href;
         id=window.location.href.split('=')[1];
         const response=await fetch(`${mainurl}/users/cart?id=${id}`,{
             method: 'POST',
