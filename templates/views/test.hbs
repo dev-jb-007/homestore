@@ -1,94 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star</title>
-</head>
-<style>
-    ion-icon{
-        color:lightgray;
-        width: 100px;
-        height: 100px;
-    }
-</style>
-<body>
-     <div class="overall_review">
-        <div class="give_rating">
-            <div id="stars-div">
-            <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star1"></ion-icon>
-            <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star2"></ion-icon>
-            <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star3"></ion-icon>
-            <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star4"></ion-icon>
-            <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star5"></ion-icon>
-        </div>
-        <textarea id="input_review" row="10" col="10"></textarea>
-        <button id="submit_review">Submit</button>
-        </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-<script>
-    let check=0;
-    function giveStarRating(element) {
-        let flag = 0;
-        check=0;
-        const starsDiv = document.getElementById('stars-div').children;
-        Array.from(starsDiv).forEach(item=>{
-            item.style.color="lightgray";
-        })
-        Array.from(starsDiv).forEach(item => {
-            if (flag == 0) {
-                if (item === element) {
-                    flag++;
-                    item.style.color = 'yellow';
+<!doctype html>
+	<head>
+		<style>
+			/* CSS comes here */
+			body {
+			    font-family: arial;
+			}
+			button {
+			    padding:10px;
+			    background-color:#6a67ce;
+			    color: #FFFFFF;
+			    border: 0px;
+			    cursor:pointer;
+			    border-radius: 5px;
+			}
+			#output {
+			    background-color:#F9F9F9;
+			    padding:10px;
+			    width: 100%;
+			    margin-top:20px;
+			    line-height:30px;
+			}
+			.hide {
+			    display:none;
+			}
+			.show {
+			    display:block;
+			}
+		</style>
+		<title>JavaScript Speech to Text</title>
+	</head>
+	<body>
+		<h2>JavaScript Speech to Text</h2>
+        <p>Click on the below button and speak something...</p>
+        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+		<script>
+			/* JS comes here */
+		    function runSpeechRecognition() {
+		        var output = document.getElementById("output");
+		        // get action element reference
+		        var action = document.getElementById("action");
+                // new speech recognition object
+                var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+                var recognition = new SpeechRecognition();
+            
+                // This runs when the speech recognition service starts
+                recognition.onstart = function() {
+                    action.innerHTML = "<small>listening, please speak...</small>";
+                };
+                
+                recognition.onspeechend = function() {
+                    action.innerHTML = "<small>stopped listening, hope you are done...</small>";
+                    recognition.stop();
                 }
-                else {
-                    item.style.color = 'yellow';
-                }
-            }
-        })
-    }
-    function takeStarRating(element){
-        if(check==0)
-        {
-            let flag = 0;
-            const starsDiv = document.getElementById('stars-div').children;
-
-            Array.from(starsDiv).forEach(item => {
-                if (flag == 0) {
-                    if (item === element) {
-                        flag++;
-                        item.style.color = 'lightgrey';
-                    }
-                    else {
-                        item.style.color = 'lightgrey';
-                    }
-                }
-            })
-        }
-        
-    }
-    function postStarRating(element){
-        let flag = 0;
-        const starsDiv = document.getElementById('stars-div').children;
-
-        Array.from(starsDiv).forEach((item, index) => {
-            if (flag == 0) {
-                if (item === element) {
-                    flag++;
-                    console.log(++index);
-                    item.style.color = 'yellow';
-                }
-                else {
-                    item.style.color = 'yellow';
-                }
-            }
-        })
-        check=1;
-    }
-</script>
-
+              
+                // This runs when the speech recognition service returns result
+                recognition.onresult = function(event) {
+                    var transcript = event.results[0][0].transcript;
+                    output.innerHTML = "<b>Text:</b> " + transcript;
+                    output.classList.remove("hide");
+                };
+              
+                 // start recognition
+                 recognition.start();
+	        }
+		</script>
+	</body>
 </html>

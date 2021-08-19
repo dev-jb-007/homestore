@@ -1,5 +1,5 @@
 
-const mainmainurl='https://home-store-1.herokuapp.com';
+
 const li = document.querySelectorAll('#list li');
 var mediaqueryipad = window.matchMedia("(max-width: 1024px) and (min-width: 500px)")
 let scroll = 0;
@@ -13,6 +13,22 @@ function changeactive(element) {
         x.classList.remove('active');
     });
     element.classList.add('active');
+}
+async function mostviewed(){
+    let mostViewedDiv=document.querySelector('.card-scroll');
+    const response=await fetch('/product/mostviewed');
+    const result=await response.json();
+    console.log(result);
+    let html='';
+    result.forEach(element=>{
+        html+=`
+        <div class="viewed-card">
+        <img src="/product/${element._id}/images?image=0" alt="">
+                <p>${element.title}</p>
+                <button style="cursor:pointer;" onclick="viewProduct('${element._id}')">View Product</button>
+        </div>`
+    })
+    mostViewedDiv.innerHTML=html;
 }
 function showmobilenav() {
     let hamburger = document.querySelector('#mobile-header #nav-hamburger #hamburger');
@@ -31,7 +47,7 @@ function showmobilenav() {
 
 async function recentViewed() {
     const recent = document.getElementById('recently-viewed');
-    const response = await fetch(`${mainmainurl}/users/recent`);
+    const response = await fetch('/users/recent');
     const result = await response.json();
     let html='';
     console.log(result);
@@ -50,7 +66,7 @@ async function recentViewed() {
         const recent=result.recent;
         recent.slice().reverse().forEach(element=>{
             html+=`<div class="viewed-card">
-            <img src="${mainmainurl}/product/${element._id}/images?image=0" alt="">
+            <img src="/product/${element._id}/images?image=0" alt="">
             <p>${element.title}</p>
             <button style="cursor:pointer" onclick="viewProduct('${element._id}')">View Product</button>
         </div>`
@@ -60,7 +76,7 @@ async function recentViewed() {
     recent.innerHTML=html;
 }
 function viewProduct(id){
-    window.open(`${mainmainurl}/product?id=${id}`);
+    window.open(`/product?id=${id}`);
 }
 // Buttons to scroll ------------------------------------------------------------------------------------
 
@@ -135,17 +151,17 @@ setInterval(() => {
 // Users Functions------------------------------------------------------------------------------------
 
 function loginbtn() {
-    window.location.href = `${mainmainurl}/users/login`;
+    window.location.href = '/users/login';
 }
 function singupbtn() {
-    window.location.href = `${mainmainurl}/users/signup1`;
+    window.location.href = '/users/signup1';
 }
 
 async function signout() {
-    const response = await fetch(`${mainmainurl}/users/signout`);
+    const response = await fetch('/users/signout');
     const result = await response.text();
     if (result == 'done') {
-        window.location.href = mainmainurl;
+        window.location.href = "/"
     }
     else {
         alert('Please Authenticate');
@@ -159,4 +175,22 @@ async function signout() {
 window.onload = ()=>{
     getinput();
     recentViewed();
+    mostviewed();
 };
+
+//Mobile functions------------------------------------------------------------------------------------
+function goToCart(){
+    window.location.href = '/cart'
+}
+// function expandMobileSearch(){
+//     console.log('Hi');
+//     const dropdown=document.querySelector('.mobile-search-dropdown');
+//     console.log(dropdown.style.height);
+//     if(dropdown.style.height==='')
+//     {
+//         dropdown.style.height='100vh';
+//     }
+//     else{
+//         dropdown.style.height='';
+//     }
+// }

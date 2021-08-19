@@ -1,4 +1,3 @@
-const mainurl='https://home-store-1.herokuapp.com';
 function *id_generator(){
     let i=0;
     while(true)
@@ -56,14 +55,14 @@ function gototop(element){
 async function getproduct(){
     const searchResults=document.querySelector('.search-results');
     let html='';
-    const response=await fetch(`${mainurl}/product/searchproduct`,{
+    const response=await fetch('../product/searchproduct',{
         method:'POST',
         headers:{
             "Content-Type":"application/json"
         },
         body:JSON.stringify({value:localStorage.getItem('search')})
     });
-    await fetch(`${mainurl}/users/updatesearch`,{
+    await fetch('../users/updatesearch',{
         method:'POST',
         headers:{
             'Content-Type':"application/json"
@@ -84,9 +83,8 @@ async function getproduct(){
 function singleProduct(element){
     const parent=element.parentElement.id.split('_');
     console.log(parent);
-    window.open(`${mainurl}/product?id=${item[parent[1]].id}`)
+    window.open(`../product?id=${item[parent[1]].id}`)
 }
-window.onload = ()=>{
-    getinput();
+window.onload=()=>{
     getproduct();
-};
+}

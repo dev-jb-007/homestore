@@ -1,23 +1,23 @@
 let body={};
-const mainurl='https://home-store-1.herokuapp.com';
 async function continuebtn()
 {   
     let url;
     const otp=document.getElementById('otp').value;
     if(otp.length==0)
     {
-        url=`${mainurl}/users/signup1`
+        url=window.location.href;
     }
     else{
-        url=`${mainurl}/users/signup2/?otp=${otp}`;
+        url=`../signup2/?otp=${otp}`;
     }
+    console.log(url);
     window.location.href=url;
 }
 async function sendotp(){
     const email=document.getElementById('email').value;
     localStorage.setItem('email',email);
     const data={email};
-    const response=await fetch(`${mainurl}/users/otp`,{
+    const response=await fetch('/users/otp',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(data)
@@ -38,7 +38,7 @@ async function submitdata(){
     body.primaryAddress=primaryAddress;
     body.password=password;
     console.log(body);
-    const response=await fetch(`${mainurl}/users/signup`,{
+    const response=await fetch('../signup',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'

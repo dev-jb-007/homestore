@@ -1,8 +1,6 @@
-const mainurl='https://home-store-1.herokuapp.com';
-window.onload = () => {
-    // getProductPrice();
-    getData();
-}
+getData();
+mostViewed();
+recommandProducts();
 class Product {
     constructor(item) {
         this.id = item._id;
@@ -13,7 +11,7 @@ class Product {
         this.viewsCount = item.viewsCount;
         this.purchasedCount = item.purchasedCount;
         this.discount = item.discount;
-        this.description = item.description;
+        this.description = item.description.split('\n');
         this.SKU_ID = item.SKU_ID;
         this.quantity = item.quantity;
         this.key_specs = item.key_specs;
@@ -40,7 +38,7 @@ class Product {
         this.ratingNumber = item.ratingNumber;
         this.reviewNumber = item.reviewNumber;
         this.html = ``;
-        this.imgmainurl = `${mainurl}/product/${this.id}/images/?image=0`;
+        this.imgurl = `../product/${this.id}/images/?image=0`;
         this.images = new Array(0);
         this.userCommented = this.comments.length;
         this.star1 = 0;
@@ -52,9 +50,9 @@ class Product {
     }
     async getimage() {
         const response1 = await fetch(``);
-        const response2 = await fetch(`http://l${mainurl}/${this.id}/images/?image=1`);
-        const response3 = await fetch(`http://l${mainurl}/${this.id}/images/?image=2`);
-        const response4 = await fetch(`http://l${mainurl}/${this.id}/images/?image=3`);
+        const response2 = await fetch(`../product/${this.id}/images/?image=1`);
+        const response3 = await fetch(`../product/${this.id}/images/?image=2`);
+        const response4 = await fetch(`../product/${this.id}/images/?image=3`);
         const result1 = await response1.json();
         const result2 = await response2.json();
         const result3 = await response3.json();
@@ -93,13 +91,13 @@ class Product {
                 <div class="main_image">
                     <button id="prev_img" onclick="prevImage()"><ion-icon name="arrow-back-outline"></ion-icon></button>
                     <button id="next_img" onclick="nextImage()"><ion-icon name="arrow-forward-outline"></ion-icon></button>
-                    <img id="main_display_image" src="${mainurl}/product/${this.id}/images/?image=0">
+                    <img id="main_display_image" src="../product/${this.id}/images/?image=0">
                 </div>
                 <div class="all_image">
-                    <img onclick="changeMainImage(this)" src="${mainurl}/product/${this.id}/images/?image=0">
-                    <img onclick="changeMainImage(this)" src="${mainurl}/product/${this.id}/images/?image=1">
-                    <img onclick="changeMainImage(this)" src="${mainurl}/product/${this.id}/images/?image=2">
-                    <img onclick="changeMainImage(this)" src="${mainurl}/product/${this.id}/images/?image=3">
+                    <img onclick="changeMainImage(this)" src="../product/${this.id}/images/?image=0">
+                    <img onclick="changeMainImage(this)" src="../product/${this.id}/images/?image=1">
+                    <img onclick="changeMainImage(this)" src="../product/${this.id}/images/?image=2">
+                    <img onclick="changeMainImage(this)" src="../product/${this.id}/images/?image=3">
                 </div>
             </div>
             <div class="buy_button">
@@ -114,7 +112,7 @@ class Product {
             <div class="product_ratings">
                 <div class="product_stars">
                     <div class="product_main_star">
-                        <p class="product_exact_rating">${this.averageRating}</p>
+                        <p class="product_exact_rating">${this.averageRating.toFixed(1)}</p>
                         <p>
                             <ion-icon name="star-sharp"></ion-icon>
                         </p>
@@ -145,8 +143,15 @@ class Product {
         </div>
     </section>
     <section class="product_full_info">
-        <h2>PRODUCT DESCRIPTION</h2>
-        <p>${this.description}</p>
+        <div>
+        <h2>PRODUCT DESCRIPTION</h2><p><ul>`
+        this.description.forEach(element=>{
+            this.html+=`
+                <li>${element}</li>
+            `
+        });
+        this.html+=`</ul></p></div>`;
+        this.html+=`
         <div class="all_info">
             <div class="all_info_content">
                 <div class="full_content">BRAND</div>
@@ -226,7 +231,7 @@ class Product {
             <div class="overall_review_content">
                 <div class="big_rating">
                     <div class="numbers">
-                        <div class="rated">${this.averageRating}/5.0</div>
+                        <div class="rated">${this.averageRating.toFixed(1)}/5.0</div>
                         <div class="star">
                             <ion-icon name="star-sharp"></ion-icon>
                         </div>
@@ -331,10 +336,10 @@ class Product {
     }
 };
 function changeMainImage(element) {
-    const mainurl = element.getAttribute('src').split('=')[0];
+    const url = element.getAttribute('src').split('=')[0];
     const number = element.getAttribute('src').split('=')[1];
     const mainimage = document.getElementById('main_display_image');
-    mainimage.setAttribute('src', `${mainurl}=${number}`);
+    mainimage.setAttribute('src', `${url}=${number}`);
 }
 function nextImage() {
     const mainimage = document.getElementById('main_display_image');
@@ -345,8 +350,8 @@ function nextImage() {
     else {
         number++;
     }
-    const mainurl = mainimage.getAttribute('src').split('=')[0];
-    mainimage.setAttribute('src', `${mainurl}=${number}`);
+    const url = mainimage.getAttribute('src').split('=')[0];
+    mainimage.setAttribute('src', `${url}=${number}`);
 }
 function prevImage() {
     const mainimage = document.getElementById('main_display_image');
@@ -357,14 +362,16 @@ function prevImage() {
     else {
         number--;
     }
-    const mainurl = mainimage.getAttribute('src').split('=')[0];
-    mainimage.setAttribute('src', `${mainurl}=${number}`);
+    const url = mainimage.getAttribute('src').split('=')[0];
+    mainimage.setAttribute('src', `${url}=${number}`);
 }
 async function getData() {
+    console.log('hi');
     let id = window.location.href.split('=')[1];
     const mainproduct = document.querySelector('.main-product');
-    const response = await fetch(`${mainurl}/product/singleproduct?id=${id}`);
+    const response = await fetch(`../product/singleproduct?id=${id}`);
     const result = await response.json();
+    console.log(result);
     let product = new Product(result);
     mainproduct.classList.remove('loader-view');
     mainproduct.innerHTML = product.content();
@@ -451,32 +458,109 @@ async function submit_review() {
     const reviews = document.getElementById('input_review').value;
     let rating;
     const starsDiv = document.getElementById('stars-div').children;
-    for (let i = 0; i < starsDiv.length; i++) {
-        if (starsDiv[i].style.color === 'lightgray') {
-            rating = i;
-            break;
-        }
+    if(starsDiv[0].style.color === 'lightgray')
+    {
+        rating=0;
     }
-    await fetch(`${mainurl}/product/uploadcomments?id=${id}`, {
+    else if(starsDiv[1].style.color === 'lightgray')
+    {
+        rating=1;
+    }
+    else if(starsDiv[2].style.color === 'lightgray')
+    {
+        rating=2;
+    }
+    else if(starsDiv[3].style.color === 'lightgray')
+    {
+        rating=3;
+    }
+    else if(starsDiv[4].style.color === 'lightgray')
+    {
+        rating=4;
+    }
+    else{
+        rating=5;
+    }
+    console.log(reviews,rating);
+    const response=await fetch(`../product/uploadcomments?id=${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ reviews, rating })
-    })
-    window.location.href =url;
+    });
+    const result=await response.json();
+    let fullReview=document.createElement('div');
+    fullReview.setAttribute('class','full_reviews');
+    fullReview.innerHTML=`<div class="full_review">
+    <div class="product_stars">
+        <div class="product_main_star">
+            <p class="product_exact_rating">${rating}</p>
+            <p>
+                <ion-icon name="star-sharp"></ion-icon>
+            </p>
+        </div>
+    </div>
+    
+    <h3>${result.firstName} ${result.lastName}</h3>
+    <div class="full_description">${reviews}</div>
+</div>`
+    document.querySelector('.all_reviews').insertAdjacentElement('beforeend',fullReview);
+    // window.location.href = url;
 }
 async function addProductToCart(id)
     {   
         let url=window.location.href;
         id=window.location.href.split('=')[1];
-        const response=await fetch(`${mainurl}/users/cart?id=${id}`,{
+        const response=await fetch(`../users/cart?id=${id}`,{
             method: 'POST',
             headers: {'Content-Type': 'text/plain'}
         });
         const result=await response.text();
-        console.log(result);
+        if(result=='Added')
+        {
+            document.getElementById('success-popup').style.transform='translateX(0)'
+        }
+        setTimeout(()=>{
+            document.getElementById('success-popup').style.transform='translateX(300px)'
+        },2000);
     }
+async function recommandProducts()
+{
+    let mostViewedDiv=document.querySelector('#card-scroll1');
+    let url=window.location.href;
+    id=window.location.href.split('=')[1];
+    const response=await fetch(`/product/recommandation?id=${id}`);
+    const result=await response.json();
+    let html='';
+        result.forEach(element=>{
+            html+=`
+            <div class="viewed-card">
+            <img src="/product/${element._id}/images?image=0" alt="">
+                    <p>${element.title}</p>
+                    <button style="cursor:pointer;" onclick="viewProduct('${element._id}')">View Product</button>
+            </div>`
+        })
+        mostViewedDiv.innerHTML=html;
+}
+async function mostViewed(){
+        console.log('hello');
+        let mostViewedDiv=document.querySelector('#card-scroll0');
+        const response=await fetch('/product/mostviewed');
+        const result=await response.json();
+        console.log(result);
+        let html='';
+        result.forEach(element=>{
+            html+=`
+            <div class="viewed-card">
+            <img src="/product/${element._id}/images?image=0" alt="">
+                    <p>${element.title}</p>
+                    <button style="cursor:pointer;" onclick="viewProduct('${element._id}')">View Product</button>
+            </div>`
+        })
+        mostViewedDiv.innerHTML=html;
+    }
+window.onload = () => {}
 // function getProductPrice(){
 //     const productPrice=document.querySelector('.product_price');
 //     const price=productPrice.children[0].innerHTML.split('.')[1];

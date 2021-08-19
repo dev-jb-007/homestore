@@ -8,12 +8,11 @@ const commentSchema = new Schema({
     reviews: {
         type: String,
         default: '',
-        maxLength: [100, 'review max length is 100 characters']
+        maxLength: [500, 'review max length is 100 characters']
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        unique: true
+        ref: 'User'
     }
 })
 const productSchema = new Schema({
@@ -24,7 +23,7 @@ const productSchema = new Schema({
     description: {
         type: String,
         required: true,
-        maxLength: [500, 'You can only add dicription upto 500 characters.']
+        maxLength: [2500, 'You can only add dicription upto 500 characters.']
     },
     images: [
         {
@@ -47,11 +46,6 @@ const productSchema = new Schema({
     reviewNumber: {
         type: Number,
         default: 0,
-        validate(count) {
-            if (count != 0) {
-                throw new Error("You can't set reviewNumber of any product")
-            }
-        }
     },
     viewsUser:
         [
@@ -76,11 +70,6 @@ const productSchema = new Schema({
     viewsCount: {
         type: Number,
         default: 0,
-        validate(count) {
-            if (count != 0) {
-                throw new Error("You can't set views of any product")
-            }
-        }
     },
     purchasedCount: {
         type: Number,
@@ -111,17 +100,17 @@ const productSchema = new Schema({
     key_specs: {
         type: String,
         default: '-',
-        maxLength: [50, "You can't enter more than 50 characters"]
+        maxLength: [500, "You can't enter more than 50 characters"]
     },
     brand: {
         type: String,
         default: '-',
-        maxLength: [50, "You can't enter more than 50 characters"]
+        maxLength: [200, "You can't enter more than 50 characters"]
     },
     manufacturer: {
         type: String,
         default: '-',
-        maxLength: [50, "You can't enter more than 50 characters"]
+        maxLength: [200, "You can't enter more than 50 characters"]
     },
     model: {
         type: String,
@@ -194,7 +183,7 @@ const productSchema = new Schema({
     },
     instruction: {
         type: String,
-        maxLength: [20, "You can't enter more than 50 characters"],
+        maxLength: [50, "You can't enter more than 50 characters"],
         default: '-'
     },
     net_quantity: {

@@ -21,40 +21,37 @@
     {{>websearch}}
     <section class="web-categories">
         <div>
-            {{!-- <img src="1.webp"> --}}
+            <img src="/Images/1.webp">
             <p>Appliances</p>
         </div>
         <div>
-            {{!-- <img src="2.webp"> --}}
+            <img src="/Images/2.webp">
             <p>Mobiles</p>
         </div>
         <div>
-            {{!-- <img src="3.webp"> --}}
+            <img src="/Images/3.webp">
             <p>Electronics</p>
         </div>
         <div>
-            {{!-- <img src="4.webp"> --}}
+            <img src="/Images/4.webp">
             <p>Fashion</p>
         </div>
         <div>
-            {{!-- <img src="5.webp"> --}}
+            <img src="/Images/5.webp">
             <p>Grocery</p>
         </div>
         <div>
-            {{!-- <img src="6.webp"> --}}
+            <img src="/Images/6.webp">
             <p>Home</p>
         </div>
         <div>
-            {{!-- <img src="7.webp"> --}}
+            <img src="/Images/7.webp">
             <p>Beauty</p>
         </div>
     </section>
     <section class="web-offer">
         <div class="scroll-image">
-            {{!-- <img src="1.jpg" alt=""> --}}
-            {{!-- <img src="eva.jpg" alt=""> --}}
-            <!-- <img src="sunny.jpg" alt=""> -->
-            <!-- <img src="sunny2.jpg" alt=""> -->
+           
         </div>
         <button class="web-offer-prev-btn" onclick="prevOffer()">
             <ion-icon class="prev" name="caret-back"></ion-icon>
@@ -67,7 +64,6 @@
     {{>webmostviewed}}
     <section id="recently-viewed" class="web-most-viewed">
         <h2>Recently &nbsp Viewed</h2>
-        
     </section>
     <div class="title">
         <h3>MOST &nbsp; VIEWED</h3>
@@ -224,13 +220,15 @@
             <p>FLIPKART</p>
         </div>
         <div id="cart">
-            <ion-icon name="cart-outline"></ion-icon>
+            <ion-icon name="cart-outline" onclick="goToCart()"></ion-icon>
         </div>
         <div id="search">
             <ion-icon name="search"></ion-icon>
-            <input type="text" id="mob-searchbar" placeholder="search product">
+            <input type="text"  id="mobile-searchbar" onclick="expandMobileSearch()" onkeyup="searchresult()"
+                onblur="minimizeMobileSearch()" placeholder="search product">
         </div>
     </header>
+    <div class="mobile-search-dropdown"></div>
     <div class="mobile-navbar">
         <ul>
             <li><a href="#">Home</a></li>
@@ -247,4 +245,6 @@
 </body>
 <script src="/utils/searchbar.js"></script>
 <script src="/javascript/homepage.js"></script>
+<script src="/utils/voiceRecognition.js"></script>
+{{!-- <script src="/utils/mobilesearchbar.js"></script> --}}
 </html>

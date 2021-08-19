@@ -191,12 +191,6 @@ h3 {
     border-radius: 20px;
     /* box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px; */
 }
-/* body {
-  align-items: center;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-} */
 
 .loader  {
   animation: rotate 1s infinite;  
@@ -270,12 +264,22 @@ h3 {
     margin-top: 0;
   }
 }
-#web-header .searchbar ion-icon {
-    width: 50px;
-    height: 50px;
+#web-header .searchbar #search-btn {
+    width: 40px;
+    height: 40px;
     right: 0px;
     position: absolute;
     cursor: pointer;
+}
+#web-header .searchbar #mic-btn {
+    width: 30px;
+    height: 25px;
+    left: 10.5%;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.7s;
 }
 
 #mobile-most-viewed {
@@ -285,12 +289,10 @@ h3 {
 /* OFFER SECTION */
 .web-offer {
     transform: translateX(3%);
-
     overflow: hidden;
     margin: 150px auto;
     width: 79.2%;
     height: 300px;
-    /* border: 1px solid black; */
 }
 
 .web-offer .web-offer-prev-btn .prev {
@@ -599,6 +601,14 @@ h3 {
     right:30%;
     transform: translate(-50%,-50%);
     cursor: pointer;
+}
+.mobile-search-dropdown{
+    width:100%;
+    height:0vh;
+    background-color:white;
+    transition: 0.5s;
+    position:absolute;
+    top:94px;
 }
 @media (min-width:700px) and (max-width:1023px) {
     .web-footer div {

@@ -5,7 +5,6 @@ const passport = require('passport');
 const isAuth = require('../utils/isAuth');
 const sharp = require('sharp');
 const multer = require('multer');
-require('dotenv').config();
 require('../config/passport');
 const otpemail = require('../config/email');
 const otpGenerator = require('otp-generator');

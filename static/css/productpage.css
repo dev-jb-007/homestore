@@ -256,9 +256,8 @@ button{
     margin: 12px 0px;
 }
 .customer_review .overall_review .overall_review_content .rating_stats .stats_box .stat_bar .upp_bar{
-    width: 50%;
+    width: 0%;
     height: 6px;
-    background-color: green;
     border-radius: 50px;
     margin: 12px 0px;
 }
@@ -377,7 +376,24 @@ button{
     align-items: center;
     justify-content: space-evenly;
 }
-
+#success-popup{
+    transform: translateX(300px);
+    transition: 0.3s;
+    padding: 10px 10px;
+    width: 10%;
+    position: absolute;
+    top:10%;
+    right: 2%;
+    z-index: 1000000000;
+    background-color: #5cb85c;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#success-popup ion-icon{
+    width: 20px;
+    height: 20px;
+}
 @media (max-width:699px){
     .product_description{
         height: max-content;

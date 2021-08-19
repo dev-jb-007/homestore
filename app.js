@@ -2,6 +2,7 @@ const express=require('express');
 const path=require('path');
 const http=require('http');
 const hbs=require('hbs');
+require('dotenv').config();
 const partials=require('partials');
 const cookieParser=require('cookie-parser');
 const session=require('express-session');
@@ -80,11 +81,11 @@ app.use('/payment',paymentRouter);
 app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
-    res.setHeader('Content-Type','application/json');
+    // res.setHeader('Content-Type','application/json');
     res.json({error:err.message})
   });
 //CREATING SERVER
 const server=http.createServer(app);
-server.listen(process.env.PORT||3000,process.env.HOST,()=>{
+server.listen(process.env.PORT,process.env.HOST,()=>{
     console.log('Successfully connected to server');
 });

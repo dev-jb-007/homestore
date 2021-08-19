@@ -6,7 +6,6 @@ const partials = require('partials');
 router.use(express.json());
 const multer = require('multer');
 const sharp = require('sharp');
-require('dotenv').config();
 router.use(express.urlencoded({ extended: true }));
 const isAuth = require('../utils/isAuth');
 const isAdmin = require('../utils/isAdmin');
@@ -32,7 +31,7 @@ router.route('/recommandations')
             words.forEach(element => {
                 result += `(?=.*${element})`;
             });
-            const products = await Product.find({ title: { $regex: `${result}` } }, 'title', { limit: 8 });
+            const products = await Product.find({ title: { $regex: `${result}`,$options:'i' } }, 'title', { limit: 8 });
             res.send(products);
         }
         catch (err) {
@@ -47,13 +46,13 @@ router.route('/searchproduct')
             words.forEach(element => {
                 result += `(?=.*${element})`;
             });
-            let products1 = await Product.find({ title: { $regex: `${result}` } });
+            let products1 = await Product.find({ title: { $regex: `${result}`,$options:'i'}});
             result = ``;
             result += `(${words[0]})`;
             for (let i = 1; i < words.length; i++) {
                 result += `|(${words[i]})`;
             }
-            let products2 = await Product.find({ title: { $regex: `${result}` } });
+            let products2 = await Product.find({ title: { $regex: `${result}`,$options:'i'}});
             let indexes = new Array();
             products2.forEach((element, index) => {
                 products1.forEach(item => {
@@ -106,13 +105,29 @@ router.route('/')
 router.route('/uploadcomments')
     .post(isAuth, async (req, res, next) => {
         try {
-            console.log(req.body);
             let product = await Product.findById(req.query.id);
             product.comments.push({ reviews: req.body.reviews, rating: req.body.rating, author: req.user._id });
+            const user=await User.findById(req.user._id,['firstName','lastName']);
             await product.save();
-            res.redirect(`${process.env.URL}/product?id=${req.query.id}`)
+            res.send(user);
         }
         catch (err) {
+            next(err);
+        }
+    })
+router.route('/mostviewed')
+    .get(async (req,res,next)=>{
+        try{
+            const product = await Product.find({},['title','description','_id'],{
+                limit:8,
+                sort:{
+                    viewsCount:-1
+                }
+            })
+            res.send(product);
+        }
+        catch(err)
+        {
             next(err);
         }
     })
@@ -139,9 +154,11 @@ router.route('/singleproduct')
                         }
                         user.recent.push(req.query.id);
                     }
+                    
                     await user.save();
                 }
             }
+            await product.save();
             res.statusCode = 200;
             res.send(product);
         }
@@ -196,5 +213,42 @@ router.route('/single')
             next(err);
         }
     })
-
+router.route('/recommandation')
+    .get(async (req,res,next)=>{
+        try{
+            const product=await Product.findById(req.query.id,['title']);
+            const x=product.title.split(' ');
+            let words=new Array();
+            x.forEach(element=>{
+                element = element.replace(/,/g,"");
+                words.push(element);
+            })
+            result = ``;
+            result += `(${words[0]})`;
+            for (let i = 1; i < words.length; i++) {
+                result += `|(${words[i]})`;
+            }
+            const recProduct=await Product.find({title:{$regex:`${result}`,$options:'i'}},['title','description']);
+            regex=new RegExp(result,'gi');
+            let map=new Map();
+            recProduct.shift();
+            recProduct.forEach((element,index)=>{
+                map.set(index,element.title.match(regex).length);
+            })
+            map[Symbol.iterator] = function* () {
+                yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
+            }
+            let arr=new Array();
+            map=[...map];
+            for(let i=0;i<map.length;i++)
+            {
+                arr.push(recProduct[map[i][0]]);
+            }
+            res.send(arr);
+        }
+        catch(err)
+        {
+            next(err);
+        }
+    })
 module.exports = router;
