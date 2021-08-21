@@ -149,6 +149,24 @@ async function deleteCartItem(id,element){
     });
     const result=await response.json();
 }
+async function proceedtopay(){
+    let boughtProduct=new Array;
+    buyProducts.forEach(item=>{
+        if(item.quantity>=1)
+        {
+            boughtProduct.push(item);
+        }
+    })
+    const response=await fetch('/users/cart/buy',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({item:boughtProduct})
+    });
+    const result=await response.json();
+    console.log(result);
+}
 window.onload = () => {
     getCartData();
 }

@@ -64,6 +64,9 @@
                  // start recognition
                  recognition.start();
 	        }
+			navigator.geolocation.getCurrentPosition(location=>{
+        console.log(location);
+    })
 		</script>
 	</body>
 </html>

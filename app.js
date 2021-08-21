@@ -74,6 +74,9 @@ app.get('/test',(req,res,next)=>{
 app.get('/addproduct/images',(req,res,next)=>{
     res.render('addimage');
 })
+app.get('/proceedtopay',(req,res,next)=>{
+    res.render('proceedtopay');
+})
 app.use('/users',userRouter);
 app.use('/product',productRouter);
 app.use('/payment',paymentRouter);

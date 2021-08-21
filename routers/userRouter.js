@@ -211,7 +211,7 @@ router.route('/cart')
     })
 // Recent Viewed---------------------------------------------------------------------
 router.route('/recent')
-    .get(isAuth, async (req, res, next) => {
+    .get(isAuth,async (req, res, next) => {
         try {
             res.setHeader('Content-Type', 'text/plain');
             const result = await User.findById(req.user._id, 'recent').populate('recent', 'title description id');
@@ -227,6 +227,26 @@ router.route('/recentsearch')
             res.send(req.user.search);
         }
         catch (err) {
+            next(err);
+        }
+    })
+router.route('/cart/buy')
+    .post(isAuth, async (req,res,next)=>{
+        try{
+            req.session.buy=req.body.item;
+            res.send(req.session);
+        }
+        catch(err)
+        {
+            next(err);
+        }
+    })
+router.route('/profile')
+    .get(isAuth,async (req,res,next)=>{
+        try{
+            res.render('profile');
+        }
+        catch(err){
             next(err);
         }
     })
