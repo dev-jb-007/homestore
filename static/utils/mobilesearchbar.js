@@ -62,6 +62,7 @@ window.onload = () => {
 };
 // let searchDropdown = document.querySelector('.searchbar-dropdown');
 function mobileexecuteSearch() {
+    console.log('hi');
     let searchbar=document.getElementById('mobile-searchbar');
     window.location.href = "/products";
     localStorage.setItem('search', searchbar.value.toLowerCase());
