@@ -10,7 +10,7 @@
         </div>
         <div id="search">
             <ion-icon name="search"></ion-icon>
-            <input type="text"  id="mobile-searchbar" onclick="expandMobileSearch()" onkeyup="mobilesearchresult()"
+            <input type="text"  id="mobile-searchbar" oninput="DropdownSearch(this)" onblur="minimizesearchbar()" onkeyup="mobilesearchresult()" onclick="opensearchbar(this)"
                  placeholder="search product">
         </div>
 </header>
