@@ -188,7 +188,7 @@ function expandMobileSearch(){
     console.log(dropdown.style.height);
     if(dropdown.style.height==='')
     {
-        dropdown.style.height='100vh';
+        dropdown.style.height='100%';
     }
     else{
         dropdown.style.height='';
