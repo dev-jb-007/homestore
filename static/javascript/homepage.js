@@ -4,7 +4,9 @@ const li = document.querySelectorAll('#list li');
 var mediaqueryipad = window.matchMedia("(max-width: 1024px) and (min-width: 500px)")
 let scroll = 0;
 // window.onload------------------------------------------------------------------------------------
-
+getinput();
+recentViewed();
+mostviewed();
 
 // navbar------------------------------------------------------------------------------------
 
@@ -46,6 +48,7 @@ function showmobilenav() {
 }
 
 async function recentViewed() {
+    console.log('recent viewed')
     const recent = document.getElementById('recently-viewed');
     const response = await fetch('/users/recent');
     const result = await response.json();
@@ -172,11 +175,6 @@ async function signout() {
 
 // SearchBar------------------------------------------------------------------------------------
 
-window.onload = ()=>{
-    getinput();
-    recentViewed();
-    mostviewed();
-};
 
 //Mobile functions------------------------------------------------------------------------------------
 function goToCart(){
