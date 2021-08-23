@@ -967,4 +967,15 @@ h3 {
         background-color: white;
         border: 2px solid black;
     }
+    .mobile-search-dropdown{
+        overflow: hidden;
+        background-color:#F2F2F2;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(16,1fr);
+        grid-row-gap: 10px;
+    }
+    .mobile-search-dropdown div{
+        border:1px solid black;
+    }
 }
