@@ -182,15 +182,15 @@ window.onload = ()=>{
 function goToCart(){
     window.location.href = '/cart'
 }
-// function expandMobileSearch(){
-//     console.log('Hi');
-//     const dropdown=document.querySelector('.mobile-search-dropdown');
-//     console.log(dropdown.style.height);
-//     if(dropdown.style.height==='')
-//     {
-//         dropdown.style.height='100vh';
-//     }
-//     else{
-//         dropdown.style.height='';
-//     }
-// }
+function expandMobileSearch(){
+    console.log('Hi');
+    const dropdown=document.querySelector('.mobile-search-dropdown');
+    console.log(dropdown.style.height);
+    if(dropdown.style.height==='')
+    {
+        dropdown.style.height='100vh';
+    }
+    else{
+        dropdown.style.height='';
+    }
+}
