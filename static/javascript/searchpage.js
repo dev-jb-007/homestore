@@ -8,7 +8,6 @@ function *id_generator(){
 const id=id_generator();
 
 let item=Array(0);
-console.log('Hi');
 function openFilter(){
     const filter = document.querySelector('.filter-outer-div');
     if(filter.style.height >= "35px"){

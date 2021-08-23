@@ -7,7 +7,6 @@ let scroll = 0;
 getinput();
 recentViewed();
 mostviewed();
-
 // navbar------------------------------------------------------------------------------------
 
 function changeactive(element) {

@@ -56,6 +56,7 @@ const searchbar = document.getElementById('searchbar');
 let searchDropdown = document.querySelector('.searchbar-dropdown');
 function executeSearch() {
     console.log(searchbar.value.toLowerCase());
+    console.log('hi')
     window.location.href = "/products";
     localStorage.setItem('search', searchbar.value.toLowerCase());
 }

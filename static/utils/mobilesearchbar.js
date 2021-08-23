@@ -61,8 +61,9 @@ window.onload = () => {
     getinput();
 };
 // let searchDropdown = document.querySelector('.searchbar-dropdown');
-function executeSearch() {
-    window.location.href = "http://localhost:3000/products";
+function mobileexecuteSearch() {
+    let searchbar=document.getElementById('mobile-searchbar');
+    window.location.href = "/products";
     localStorage.setItem('search', searchbar.value.toLowerCase());
 }
 
