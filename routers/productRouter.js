@@ -154,7 +154,6 @@ router.route('/singleproduct')
                         }
                         user.recent.push(req.query.id);
                     }
-                    
                     await user.save();
                 }
             }

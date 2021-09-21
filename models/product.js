@@ -190,6 +190,11 @@ const productSchema = new Schema({
         type: Number,
         min: 0,
         default: 1
-    }
+    },
+    transactionId:[
+        {
+            type:String,
+        }
+    ]
 });
 module.exports = mongoose.model('product', productSchema);

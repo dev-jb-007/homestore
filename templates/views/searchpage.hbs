@@ -95,35 +95,13 @@
     </button>
     {{>webfooter}}
     <!-- Mobile Html  -->
-    <header id="mobile-header">
-        <div id="nav-hamburger">
-            <div id="hamburger" onclick="showmobilenav()"></div>
-        </div>
-        <div id="title">
-            <p>FLIPKART</p>
-        </div>
-        <div id="cart">
-            <ion-icon name="cart-outline"></ion-icon>
-        </div>
-        <div id="search">
-            <ion-icon name="search"></ion-icon>
-            <input type="text"  placeholder="search product">
-        </div>
-    </header>
-    <div class="mobile-navbar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">My Orders</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Sign Out</a></li>
-        </ul>
-    </div>
+    {{>mobileheader}}
+    {{>mobilenavbar}}
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 {{!-- <script src="/javascript/homepage.js"></script> --}}
+<script src="/utils/mobilesearchbar.js"></script>
 <script src="/utils/searchbar.js"></script>
 <script src="/utils/productclass.js"></script>
 <script src="/javascript/searchpage.js"></script>

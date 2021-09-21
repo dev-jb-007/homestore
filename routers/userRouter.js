@@ -221,6 +221,17 @@ router.route('/recent')
             next(err);
         }
     })
+//Proceed To Pay
+router.route('/proceedtopay')
+    .get(isAuth,(req,res,next)=>{
+        try{
+            
+        }
+        catch(err)
+        {
+
+        }
+    })
 router.route('/recentsearch')
     .get(isAuth, async (req, res, next) => {
         try {

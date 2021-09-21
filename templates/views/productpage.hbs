@@ -24,31 +24,8 @@
     {{>webmostviewed}}
     {{>webfooter}}
     <!-- Mobile Html  -->
-    <header id="mobile-header">
-        <div id="nav-hamburger">
-            <div id="hamburger" onclick="showmobilenav()"></div>
-        </div>
-        <div id="title">
-            <p>FLIPKART</p>
-        </div>
-        <div id="cart">
-            <ion-icon name="cart-outline"></ion-icon>
-        </div>
-        <div id="search">
-            <ion-icon name="search"></ion-icon>
-            <input type="text" id="searchbar" placeholder="search product">
-        </div>
-    </header>
-    <div class="mobile-navbar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Wishlist</a></li>
-            <li><a href="#">My Orders</a></li>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Sign Out</a></li>
-        </ul>
-    </div>
+    {{>mobileheader}}
+    {{>mobilenavbar}}
     <div id="stars-div">
         <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star1"></ion-icon>
         <ion-icon name="star" onmouseover='giveStarRating(this)' onmouseout ='takeStarRating(this)' onclick="postStarRating(this)" id="star2"></ion-icon>
@@ -63,4 +40,5 @@
 
 <script src="/javascript/productpage.js"></script>
 <script src="/utils/searchbar.js"></script>
+<script src="/utils/mobilesearchbar.js"></script>
 </html>

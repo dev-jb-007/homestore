@@ -1,6 +1,8 @@
 let buyProducts=new Array;
+let totalPriceDiv=document.querySelector('.final-amount');
 let mrp=0;
 let realPrice=0;
+let totalPrice=0;
 async function getCartData() {
     let id = window.location.href.split('=')[1];
     const mainproduct = document.querySelector('.main-product');
@@ -73,6 +75,8 @@ function addProductToBuy(id,price,realprice){
     })
     mrpdiv.innerHTML=`Rs. ${mrp}`;
     discountDiv.innerHTML=`Rs ${realPrice}`;
+    totalPrice=mrp-realPrice;
+    totalPriceDiv.innerHTML=`Rs ${totalPrice}`;
 }
 function checkItem(element,id,price,realprice){
     let quantity;
@@ -130,6 +134,8 @@ function removeProductToBuy(id,price,realprice,flag=false){
     })
     mrpdiv.innerHTML=`Rs. ${mrp}`;
     discountDiv.innerHTML=`Rs ${realPrice}`;
+    totalPrice=mrp-realPrice;
+    totalPriceDiv.innerHTML=`Rs ${totalPrice}`;
 }
 async function deleteCartItem(id,element){
     let parent=element.parentElement.parentElement;

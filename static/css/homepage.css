@@ -580,7 +580,7 @@ h3 {
 .title{
     display: none;
 }
-#recent-viewed-login{
+.recent-viewed-login{
     border: 2px solid black;
     margin-top: 10px;
     width: 8em;
@@ -592,7 +592,7 @@ h3 {
     transform: translate(-50%,-50%);
     cursor: pointer;
 }
-#recent-viewed-signup{
+.recent-viewed-signup{
     border: 2px solid black;
     margin-top: 10px;
     width: 8em;

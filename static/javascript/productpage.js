@@ -447,7 +447,7 @@ function showUploadRating() {
         giverating.style.opacity = 0;
         giverating.style.pointerEvents = 'none';
         ratingstat.style.opacity = 1;
-        atingstat.style.pointerEvents = 'auto';
+        ratingstat.style.pointerEvents = 'auto';
     }
 
 }

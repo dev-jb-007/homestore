@@ -36,7 +36,7 @@ async function getinputmobile() {
     if (result.length != 0) {
         result.forEach(element => {
             html +=
-                `<div class="mobile-recommandation">
+                `<div class="mobile-recommandation" onclick="goToProduct('${element._id}')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
               </svg>
@@ -60,6 +60,9 @@ const mobilesearchresult = mobilecallingfunction(getinputmobile, 300);
 window.onload = () => {
     getinput();
 };
+function goToProduct(id){
+    window.location.href=`/product?id=${id}`
+}
 // let searchDropdown = document.querySelector('.searchbar-dropdown');
 function mobileexecuteSearch() {
     console.log('hi');
@@ -67,4 +70,17 @@ function mobileexecuteSearch() {
     window.location.href = "/products";
     localStorage.setItem('search', searchbar.value.toLowerCase());
 }
-
+function showmobilenav() {
+    let hamburger = document.querySelector('#mobile-header #nav-hamburger #hamburger');
+    let nav = document.querySelector('.mobile-navbar');
+    if (nav.style.width == '75%') {
+        hamburger.style.backgroundColor = 'black';
+        document.styleSheets[0].addRule('#mobile-header #nav-hamburger #hamburger::after', 'transform:translateY(0px) rotate(0deg)')
+        document.styleSheets[0].addRule('#mobile-header #nav-hamburger #hamburger::before', 'transform:translateY(0px) rotate(0deg)');
+        return nav.style.width = '0%'
+    }
+    hamburger.style.backgroundColor = 'transparent';
+    document.styleSheets[0].addRule('#mobile-header #nav-hamburger #hamburger::after', 'transform:translateY(+8px) rotate(45deg)');
+    document.styleSheets[0].addRule('#mobile-header #nav-hamburger #hamburger::before', 'transform:translateY(-8px) rotate(-45deg)');
+    nav.style.width = '75%';
+}

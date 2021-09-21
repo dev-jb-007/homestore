@@ -55,8 +55,8 @@ async function recentViewed() {
     console.log(result);
     if (result.error) {
         html+= `<h2>Recently &nbsp Viewed</h2>;
-            <button onclick='loginbtn()' id="recent-viewed-login">Log In</button>
-            <button onclick='singupbtn()' id="recent-viewed-signup">Sign Up</button>;`;
+            <button onclick='loginbtn()' class="recent-viewed-login">Log In</button>
+            <button onclick='singupbtn()' class="recent-viewed-signup">Sign Up</button>;`;
     }
     else if(result.recent.length === 0){
         html+='<h2>Recently &nbsp Viewed</h2>Your Recently viewed Products Will Appear Here'
@@ -159,17 +159,6 @@ function singupbtn() {
     window.location.href = '/users/signup1';
 }
 
-async function signout() {
-    const response = await fetch('/users/signout');
-    const result = await response.text();
-    if (result == 'done') {
-        window.location.href = "/"
-    }
-    else {
-        alert('Please Authenticate');
-    }
-}
-
 
 
 // SearchBar------------------------------------------------------------------------------------
@@ -191,46 +180,4 @@ function goToCart(){
 //         dropdown.style.height='';
 //     }
 // }
-function DropdownSearch(element){
-    const dropdown=document.querySelector('.mobile-search-dropdown');
-    if(element.value==='')
-    {
-        dropdown.style.height='';
-        enableScroll();
-    }
-    else{
-        dropdown.style.height='718px';
-        disableScroll();
-    }
-}
-function disableScroll() {
-    // Get the current page scroll position
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-  
-        // if any scroll is attempted, set this to the previous value
-        window.onscroll = function() {
-            window.scrollTo(scrollLeft, scrollTop);
-        };
-}
-  
-function enableScroll() {
-    window.onscroll = function() {};
-}
-function minimizesearchbar(){
-    const dropdown=document.querySelector('.mobile-search-dropdown');
-    dropdown.style.height='';
-    enableScroll();
-}
-function opensearchbar(element){
-    const dropdown=document.querySelector('.mobile-search-dropdown');
-    if(element.value==='')
-    {
-        dropdown.style.height='';
-        enableScroll();
-    }
-    else{
-        dropdown.style.height='718px';
-        disableScroll();
-    }
-}
+
