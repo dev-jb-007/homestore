@@ -284,7 +284,7 @@ h3 {
     transition: 0.7s;
 }
 
-#mobile-most-viewed {
+.mobile-most-viewed {
     display: none;
 }
 
@@ -914,7 +914,7 @@ h3 {
         list-style: none;
     }
 
-    #mobile-most-viewed {
+    .mobile-most-viewed {
 
         width: 100%;
         margin: 0px 0 20px 0px;
@@ -926,7 +926,7 @@ h3 {
         border-radius: 10px;
     }
 
-    #mobile-most-viewed .mobile-most-viewed-scroll {
+    .mobile-most-viewed .mobile-most-viewed-scroll {
         width: 200%;
         margin-left: 0px;
         height: 100%;
@@ -936,7 +936,7 @@ h3 {
         justify-content: space-around;
     }
 
-    #mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card {
+    .mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card {
         width: 7.7em;
         /* margin-left:20px; */
         height: 90%;
@@ -945,7 +945,7 @@ h3 {
         flex-direction: column;
     }
 
-    #mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card .mobile-most-viewed-card-text {
+    .mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card .mobile-most-viewed-card-text {
         overflow: hidden;
         width: 70%;
         aspect-ratio: 5/4;
@@ -953,7 +953,7 @@ h3 {
         font-size: 80%;
     }
 
-    #mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card img {
+    .mobile-most-viewed .mobile-most-viewed-scroll .mobile-most-viewed-card img {
         margin-top: 5px;
         width: 70%;
         aspect-ratio: 16/9;

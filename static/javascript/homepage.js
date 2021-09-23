@@ -8,7 +8,6 @@ getinput();
 recentViewed();
 mostviewed();
 // navbar------------------------------------------------------------------------------------
-
 function changeactive(element) {
     Array.from(li).forEach(x => {
         x.classList.remove('active');
@@ -48,7 +47,23 @@ function showmobilenav() {
 
 async function recentViewed() {
     console.log('recent viewed')
-    const recent = document.getElementById('recently-viewed');
+    var recent,className1,className2,headerDisplay,textDisplay;
+    if(window.innerWidth<=700)
+    {
+        recent=document.getElementById('mobile-recent-viewed');
+        recent.style.display='block';
+        className1='mobile-most-viewed-scroll';
+        className2='mobile-most-viewed-card';
+        headerDisplay='none';
+        textDisplay='block';
+    }
+    else{
+        recent = document.getElementById('recently-viewed');
+        className1='card-scroll';
+        className2='viewed-card';
+        headerDisplay='block';
+        textDisplay='none';
+    }
     const response = await fetch('/users/recent');
     const result = await response.json();
     let html='';
@@ -63,14 +78,17 @@ async function recentViewed() {
     }
     else{
         html+=`
-        <h2>RECENT &nbsp VIEWED</h2>
-        <div class="card-scroll">`
+        <h2 style="display:${headerDisplay}">RECENT &nbsp VIEWED</h2>
+        <div class=${className1}>`
         const recent=result.recent;
         recent.slice().reverse().forEach(element=>{
-            html+=`<div class="viewed-card">
+            html+=`<div class=${className2}>
             <img src="/product/${element._id}/images?image=0" alt="">
-            <p>${element.title}</p>
-            <button style="cursor:pointer" onclick="viewProduct('${element._id}')">View Product</button>
+            <p style="display:${headerDisplay}"onclick="viewProduct('${element._id}')">${element.title}</p>
+            <div style="display:${textDisplay}" class="mobile-most-viewed-card-text">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, reiciendis?</p>
+            </div>
+            <button style="cursor:pointer;display:${headerDisplay}" onclick="viewProduct('${element._id}')">View Product</button>
         </div>`
         });
         html+='</div>'
