@@ -15,7 +15,7 @@ function changeactive(element) {
     element.classList.add('active');
 }
 async function mostviewed(){
-    let mostViewedDiv=document.querySelector('.card-scroll');
+    let mostViewedDiv=document.querySelector('.web-most-viewed .card-scroll');
     const response=await fetch('/product/mostviewed');
     const result=await response.json();
     console.log(result);
@@ -78,7 +78,7 @@ async function recentViewed() {
     }
     else{
         html+=`
-        <h2 style="display:${headerDisplay}">RECENT &nbsp VIEWED</h2>
+        <h2 style="display:${headerDisplay}">RECENTLY &nbsp VIEWED</h2>
         <div class=${className1}>`
         const recent=result.recent;
         recent.slice().reverse().forEach(element=>{
@@ -86,7 +86,7 @@ async function recentViewed() {
             <img src="/product/${element._id}/images?image=0" alt="">
             <p style="display:${headerDisplay}"onclick="viewProduct('${element._id}')">${element.title}</p>
             <div style="display:${textDisplay}" class="mobile-most-viewed-card-text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, reiciendis?</p>
+                <p style="display:${textDisplay}"onclick="viewProduct('${element._id}')">${element.title}</p>
             </div>
             <button style="cursor:pointer;display:${headerDisplay}" onclick="viewProduct('${element._id}')">View Product</button>
         </div>`
