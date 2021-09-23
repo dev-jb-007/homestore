@@ -5,6 +5,10 @@
             <li><a href="#">Wishlist</a></li>
             <li><a href="#">My Orders</a></li>
             <li><a href="#">Help</a></li>
-            <li><a href="#" onclick="signout()">Sign Out</a></li>
+            {{#if check}}
+                <li><a href="#" onclick="signout()">Sign Out</a></li>
+            {{else}}
+                <li><a href="users/login ">Log In</a></li>
+            {{/if}}
         </ul>
     </div>

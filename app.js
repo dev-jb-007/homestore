@@ -38,9 +38,6 @@ app.use(session({
     }
 
 }))
-
-
-
 //MIDDLEWARES
 app.use(express.json());
 app.use(cookieParser());
@@ -54,8 +51,20 @@ hbs.registerPartials(path.join(__dirname,'/templates/partials'));
 
 //ROUTERS
 app.get('/',(req,res,next)=>{
+    let check=false;
+    if(req.session.passport)
+    {   
+        if(req.session.passport.user)
+        {   
+            check=true;
+        }
+        else{
+        }
+    }
+    else{
+    }
     res.statusCode=200;
-    res.render('homepage');
+    res.render('homepage',{check});
 })
 app.get('/cart',(req,res,next)=>{
     res.render('cart');

@@ -587,6 +587,632 @@
                     "filename": "utils/isAuth.js"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2021-09-24 00:13:26",
+            "filesum": 91,
+            "codesum": 9028,
+            "commentsum": 202,
+            "blanksum": 369,
+            "statistics": {
+                ".xml": {
+                    "code": 93,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".txt": {
+                    "code": 1,
+                    "comment": 0,
+                    "blank": 0
+                },
+                "": {
+                    "code": 20,
+                    "comment": 3,
+                    "blank": 0
+                },
+                ".js": {
+                    "code": 2783,
+                    "comment": 101,
+                    "blank": 115
+                },
+                ".json": {
+                    "code": 2011,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".html": {
+                    "code": 7,
+                    "comment": 0,
+                    "blank": 2
+                },
+                ".iml": {
+                    "code": 12,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".env": {
+                    "code": 1,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".md": {
+                    "code": 3,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 2375,
+                    "comment": 90,
+                    "blank": 207
+                },
+                ".hbs": {
+                    "code": 1722,
+                    "comment": 8,
+                    "blank": 45
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 3,
+                    "filename": ".env"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": ".idea/.gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".idea/.name"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": ".idea/Azure Website.iml"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": ".idea/modules.xml"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": ".idea/vcs.xml"
+                },
+                {
+                    "blank": 0,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": ".idea/workspace.xml"
+                },
+                {
+                    "blank": 5,
+                    "code": 88,
+                    "comment": 10,
+                    "filename": "app.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 2,
+                    "filename": "config/email.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "config/mongoose.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "config/passport.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "config/Paytm/config.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 82,
+                    "comment": 3,
+                    "filename": "config/Paytm/crypt.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 114,
+                    "comment": 2,
+                    "filename": "config/Paytm/PaytmChecksum.js"
+                },
+                {
+                    "filename": "dev",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 199,
+                    "comment": 0,
+                    "filename": "models/product.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 105,
+                    "comment": 1,
+                    "filename": "models/user.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1977,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 25,
+                    "code": 92,
+                    "comment": 12,
+                    "filename": "routers/paymentRouter.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 248,
+                    "comment": 3,
+                    "filename": "routers/productRouter.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 248,
+                    "comment": 11,
+                    "filename": "routers/userRouter.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "sendgrid.env"
+                },
+                {
+                    "blank": 0,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "static/css/addproduct.css"
+                },
+                {
+                    "blank": 44,
+                    "code": 323,
+                    "comment": 5,
+                    "filename": "static/css/cartpage.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 96,
+                    "comment": 7,
+                    "filename": "static/css/catalog.css"
+                },
+                {
+                    "blank": 119,
+                    "code": 845,
+                    "comment": 37,
+                    "filename": "static/css/homepage.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 114,
+                    "comment": 1,
+                    "filename": "static/css/login.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "static/css/proceedtopay.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 492,
+                    "comment": 22,
+                    "filename": "static/css/productpage.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 60,
+                    "comment": 4,
+                    "filename": "static/css/profile.css"
+                },
+                {
+                    "blank": 30,
+                    "code": 166,
+                    "comment": 11,
+                    "filename": "static/css/searchpage.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 175,
+                    "comment": 2,
+                    "filename": "static/css/signup.css"
+                },
+                {
+                    "filename": "static/Images/1.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/2.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/3.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/4.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/5.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/6.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/7.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/8.webp",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/googlepay.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/no_items_found.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/paytm.jpeg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "static/Images/paytm.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "static/javascript/addproduct.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 167,
+                    "comment": 3,
+                    "filename": "static/javascript/cart.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 187,
+                    "comment": 19,
+                    "filename": "static/javascript/homepage.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "static/javascript/login.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 555,
+                    "comment": 9,
+                    "filename": "static/javascript/productpage.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "static/javascript/searchpage.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "static/javascript/signup.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 63,
+                    "comment": 20,
+                    "filename": "static/utils/mobilesearchbar.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 2,
+                    "filename": "static/utils/mobilesearchdropdown.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "static/utils/productclass.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 157,
+                    "comment": 2,
+                    "filename": "static/utils/searchbar.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "static/utils/signout.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 18,
+                    "comment": 2,
+                    "filename": "static/utils/voiceRecognition.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "templates/partials/loader.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "templates/partials/mobileheader.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "templates/partials/mobilenavbar.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "templates/partials/mobilesearchdropdown.hbs"
+                },
+                {
+                    "blank": 4,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "templates/partials/star.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "templates/partials/webfooter.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "templates/partials/webheader.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "templates/partials/webmostviewed.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "templates/partials/webnavbar.hbs"
+                },
+                {
+                    "blank": 1,
+                    "code": 148,
+                    "comment": 0,
+                    "filename": "templates/partials/websearch.hbs"
+                },
+                {
+                    "blank": 6,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "templates/views/addimage.hbs"
+                },
+                {
+                    "blank": 3,
+                    "code": 119,
+                    "comment": 0,
+                    "filename": "templates/views/addproduct.hbs"
+                },
+                {
+                    "blank": 3,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "templates/views/cart.hbs"
+                },
+                {
+                    "blank": 3,
+                    "code": 496,
+                    "comment": 0,
+                    "filename": "templates/views/catalog.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "templates/views/error.hbs"
+                },
+                {
+                    "blank": 6,
+                    "code": 133,
+                    "comment": 1,
+                    "filename": "templates/views/homepage.hbs"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "templates/views/image.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "templates/views/index.hbs"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "templates/views/login.hbs"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "templates/views/payment.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "templates/views/proceedtopay.hbs"
+                },
+                {
+                    "blank": 4,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "templates/views/productpage.hbs"
+                },
+                {
+                    "blank": 2,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "templates/views/profile.hbs"
+                },
+                {
+                    "blank": 3,
+                    "code": 107,
+                    "comment": 0,
+                    "filename": "templates/views/searchpage.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "templates/views/signup1.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "templates/views/signup2.hbs"
+                },
+                {
+                    "blank": 4,
+                    "code": 61,
+                    "comment": 7,
+                    "filename": "templates/views/test.hbs"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "test.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "test.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "utils/isAdmin.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "utils/isAuth.js"
+                }
+            ]
         }
     ]
 }

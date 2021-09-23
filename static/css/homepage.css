@@ -12,7 +12,9 @@
 html {
     scroll-behavior: smooth;
 }
-
+/* .most-viewed-star svg{
+    background-color: black;
+} */
 body::-webkit-scrollbar {
     display: none;
 }
@@ -422,7 +424,7 @@ h3 {
 
 .web-most-viewed .viewed-card p {
     width: 60%;
-    height: 30%;
+    height: 25%;
     overflow: hidden;
     text-align: left;
 }

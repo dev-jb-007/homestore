@@ -25,10 +25,18 @@
                         <ion-icon name="bookmark-outline"></ion-icon>
                     </span>
                 </a></li>
-            <li onmouseover="changeactive(this)"><a onclick="signout()">
+            {{#if check}}
+                <li onmouseover="changeactive(this)"><a onclick="signout()">
                     <span class="logo">
-                        <ion-icon name="log-out-outline"></ion-icon>
+                        <ion-icon name="log-out"></ion-icon>
                     </span>
                 </a></li>
+            {{else}}
+                <li onmouseover="changeactive(this)"><a href="users/login">
+                    <span class="logo">
+                        <ion-icon name="log-in"></ion-icon>
+                    </span>
+                </a></li>
+            {{/if}}
         </ul>
-    </nav>
+</nav>

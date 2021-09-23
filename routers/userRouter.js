@@ -214,7 +214,7 @@ router.route('/recent')
     .get(isAuth,async (req, res, next) => {
         try {
             res.setHeader('Content-Type', 'text/plain');
-            const result = await User.findById(req.user._id, 'recent').populate('recent', 'title description id');
+            const result = await User.findById(req.user._id, 'recent').populate('recent', 'title id price comments');
             res.send(result);
         }
         catch (err) {
