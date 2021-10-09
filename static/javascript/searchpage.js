@@ -6,8 +6,15 @@ function *id_generator(){
     }
 }
 const id=id_generator();
-
+const items=[];
+const price ={
+    min:0,
+    max:0
+}
+const brand = new Map();
 let item=Array(0);
+let updatePriceListArray=new Array;
+let priceSortHtml='';
 function openFilter(){
     const filter = document.querySelector('.filter-outer-div');
     if(filter.style.height >= "35px"){
@@ -73,11 +80,106 @@ async function getproduct(){
     console.log(result);
     for(let i=0;i<number;i++)
     {   
+        if(result[i].price<=price.min)
+        {
+            price.min=result[i].price;
+        }
+        if(result[i].price>=price.max)
+        {
+            price.max=result[i].price;
+        }
+        if(!brand.get(result[i].brand))
+        {
+            brand.set(result[i].brand,1);
+        }
+        else{
+            let x=brand.get(result[i].brand);
+            brand.set(result[i].brand,x+1);
+        }
+        
         item.push(new Product(result[i],id.next().value));
         html+=item[i].content();
+        showFilter();
     }
     searchResults.classList.remove('remove-height');
     searchResults.innerHTML=html;
+    brand[Symbol.iterator] = function* () {
+        yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
+    }
+    console.log(brand);
+}
+function showFilter(){
+    const filterDiv=document.querySelector('.filter-outer-div');
+    filterDiv.innerHTML=`<div class="filter">
+    <p onclick="openFilter()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" /></svg>
+        FILTER
+    </>
+    <div class="filter-opt">
+        <div class="filt-categories">
+            <h3 class="filter-title">PRICE</h3>
+            <div class="radio">
+                <label for="price-opt1" style="width:100%""> <input type="checkbox" name="price-opt" id="price-opt1" onchange="updatePriceList('price-opt1')">${price.min}-${price.max/5 -1}
+                </label>
+                <label for="price-opt2" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt2" onchange="updatePriceList('price-opt2')">${price.max/5}-${price.max*2/5 -1}
+                </label>
+                <label for="price-opt3" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt3" onchange="updatePriceList('price-opt3')">${price.max*2/5}-${price.max*3/5 -1}
+                </label>
+                <label for="price-opt4" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt4" onchange="updatePriceList('price-opt4')">${price.max*3/5}-${price.max*4/5 -1}
+                </label>
+                <label for="price-opt5" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt5" onchange="updatePriceList('price-opt5')">&gt;${price.max*4/5}
+                </label>
+            </div>
+        </div>
+        <div class="filt-categories">
+            <h3 class="filter-title">COLOR</h3>
+            <div class="radio">
+                <label for="price-opt1" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                </label>
+                <label for="price-opt2" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                </label>
+                <label for="price-opt3" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                </label>
+                <label for="price-opt4" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                </label>
+                <label for="price-opt5" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                </label>
+            </div>
+        </div>
+        <div class="filt-categories">
+            <h3 class="filter-title">DISCOUNTS</h3>
+            <div class="radio">
+                <label for="price-opt1" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                </label>
+                <label for="price-opt2" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                </label>
+                <label for="price-opt3" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                </label>
+                <label for="price-opt4" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                </label>
+                <label for="price-opt5" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                </label>
+            </div>
+        </div>
+        <div class="filt-categories">
+            <h3 class="filter-title">ARRIVALS</h3>
+            <div class="radio">
+                <label for="price-opt1" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt1">200-300
+                </label>
+                <label for="price-opt2" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt2">200-300
+                </label>
+                <label for="price-opt3" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt3">200-300
+                </label>
+                <label for="price-opt4" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt4">200-300
+                </label>
+                <label for="price-opt5" style="width:100%"> <input type="checkbox" name="price-opt" id="price-opt5">200-300
+                </label>
+            </div>
+        </div>
+    </div>
+</div>`;
 }
 function singleProduct(element){
     const parent=element.parentElement.id.split('_');
@@ -86,4 +188,36 @@ function singleProduct(element){
 }
 window.onload=()=>{
     getproduct();
+}
+
+function priceSort(){
+
+}
+function updatePriceList(elementId)
+{
+    let element=document.getElementById(elementId);
+    let string=element.parentElement.childNodes[2].data;
+    console.log(string);
+    let minPrice=string.split('-')[0];
+    let maxPrice=string.split('-')[1].split('\n')[0];
+    if(!element.checked)
+    {
+        let i;
+        updatePriceListArray.forEach((item,index)=>{
+            if(item.min===minPrice&&item.max===maxPrice)
+            {
+                i=index;
+            }
+        })
+        updatePriceListArray.splice(i,1);
+    }
+    else{
+        
+        console.log(minPrice,maxPrice);
+        updatePriceListArray.push({
+            min:minPrice,
+            max:maxPrice
+        })
+    }
+    console.log(updatePriceListArray);
 }

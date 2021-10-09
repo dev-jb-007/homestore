@@ -46,13 +46,13 @@ router.route('/searchproduct')
             words.forEach(element => {
                 result += `(?=.*${element})`;
             });
-            let products1 = await Product.find({ title: { $regex: `${result}`,$options:'i'}});
+            let products1 = await Product.find({ title: { $regex: `${result}`,$options:'i'}},['title','description','comments','price','discount','brand']);
             result = ``;
             result += `(${words[0]})`;
             for (let i = 1; i < words.length; i++) {
                 result += `|(${words[i]})`;
             }
-            let products2 = await Product.find({ title: { $regex: `${result}`,$options:'i'}});
+            let products2 = await Product.find({ title: { $regex: `${result}`,$options:'i'}},['title','description','comments','price','discount','brand']);
             let indexes = new Array();
             products2.forEach((element, index) => {
                 products1.forEach(item => {
