@@ -39,7 +39,7 @@ class Product{
     }
     content()
     {
-        this.html+=`
+        let html=`
         <div class="search-content" id="product_${this.product_id}">
             <div class="pro-img" onclick="singleProduct(this)">
                 <img src=${this.imgurl} alt="Product Image">
@@ -52,7 +52,7 @@ class Product{
                 </div>
             </div>
         </div>`
-        return this.html;
+        return html;
     }
     cart(){
         this.html+=`<div class="cart-card">

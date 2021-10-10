@@ -5,6 +5,7 @@ function *id_generator(){
         yield i++;
     }
 }
+let Mainhtml='';
 const id=id_generator();
 const items=[];
 const price ={
@@ -12,7 +13,6 @@ const price ={
     max:0
 }
 const brand = new Map();
-let item=Array(0);
 let updatePriceListArray=new Array;
 let priceSortHtml='';
 function openFilter(){
@@ -60,7 +60,7 @@ function gototop(element){
 }
 async function getproduct(){
     const searchResults=document.querySelector('.search-results');
-    let html='';
+    
     const response=await fetch('../product/searchproduct',{
         method:'POST',
         headers:{
@@ -97,12 +97,13 @@ async function getproduct(){
             brand.set(result[i].brand,x+1);
         }
         
-        item.push(new Product(result[i],id.next().value));
-        html+=item[i].content();
+        items.push(new Product(result[i],id.next().value));
+        // console.log(items[i].content());
+        Mainhtml+=items[i].content();
         showFilter();
     }
     searchResults.classList.remove('remove-height');
-    searchResults.innerHTML=html;
+    searchResults.innerHTML=Mainhtml;
     brand[Symbol.iterator] = function* () {
         yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
     }
@@ -190,34 +191,85 @@ window.onload=()=>{
     getproduct();
 }
 
-function priceSort(){
-
+function priceSort(index,operation){
+    const mainDiv=document.querySelector('.search-results');
+    
+    if(operation==="remove")
+    {
+        
+        let {min,max}=updatePriceListArray[index];
+        items.forEach(element=>{
+            if(element.price>=parseInt(min)&&element.price<=parseInt(max))
+            {
+                // let html=element.content();
+                // priceSortHtml-=html.slice(0,html.length/2);
+                priceSortHtml-=element.content();
+            }
+        })
+        updatePriceListArray.splice(index,1);
+    }
+    else{
+        let {min,max}=updatePriceListArray[index];
+        // console.log(items);
+        items.forEach(element=>{
+            if(element.price>=parseInt(min)&&element.price<=parseInt(max))
+            {
+                // let html=element.content();
+                // html=html.slice(0,html.length/2);
+                // console.log(html);
+                // priceSortHtml+=html;
+                priceSortHtml+=element.content();
+            }
+        })
+    }
+    if(updatePriceListArray.length===0)
+    {
+        mainDiv.innerHTML=Mainhtml;
+    }
+    else{
+        if(!priceSortHtml)
+        {
+            priceSortHtml=`<img style="user-select: auto;
+            width: 50%;
+            margin: 70px auto;
+            display: block;" src="../Images/noproductfound.png">`
+            mainDiv.innerHTML=priceSortHtml;
+            priceSortHtml='';
+        }
+        else{
+            mainDiv.innerHTML=priceSortHtml;
+        }
+    }
 }
 function updatePriceList(elementId)
 {
     let element=document.getElementById(elementId);
     let string=element.parentElement.childNodes[2].data;
-    console.log(string);
+    // console.log(string);
+    let i;
+    let operation;
     let minPrice=string.split('-')[0];
     let maxPrice=string.split('-')[1].split('\n')[0];
     if(!element.checked)
     {
-        let i;
+        operation="remove";
         updatePriceListArray.forEach((item,index)=>{
             if(item.min===minPrice&&item.max===maxPrice)
             {
                 i=index;
             }
         })
-        updatePriceListArray.splice(i,1);
+        
     }
     else{
-        
         console.log(minPrice,maxPrice);
+        operation="add";
+        i=updatePriceListArray.length;
         updatePriceListArray.push({
             min:minPrice,
             max:maxPrice
         })
     }
-    console.log(updatePriceListArray);
+    priceSort(i,operation);
+    // console.log(updatePriceListArray);
 }
